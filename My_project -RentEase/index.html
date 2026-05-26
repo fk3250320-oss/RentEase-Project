@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentEase App - Furniture and Appliance Rentals</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="RentEase home">
+      <span class="brand-mark">R</span>
+      <span>RentEase</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#catalog">Catalog</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#plans">Plans</a>
+    </nav>
+    <a class="nav-action" href="#catalog">Open App</a>
+  </header>
+
+  <main>
+    <section class="hero app-hero">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Rental workspace</p>
+        <h1>RentEase</h1>
+        <p class="hero-copy">Build a rental bundle, compare monthly costs, schedule delivery, and send a request from one focused dashboard.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#catalog">Build bundle</a>
+          <a class="secondary-button" href="#plans">Checkout</a>
+        </div>
+      </div>
+      <div class="hero-stats" aria-label="RentEase platform highlights">
+        <div>
+          <strong>48 hr</strong>
+          <span>delivery slots</span>
+        </div>
+        <div>
+          <strong>0</strong>
+          <span>deposit options</span>
+        </div>
+        <div>
+          <strong>24/7</strong>
+          <span>service support</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Rental controls">
+      <label>
+        <span>Location</span>
+        <input id="locationInput" type="text" value="Bengaluru" aria-label="Delivery location">
+      </label>
+      <label>
+        <span>Rental period</span>
+        <select id="durationSelect" aria-label="Rental period">
+          <option value="3">3 months</option>
+          <option value="6" selected>6 months</option>
+          <option value="12">12 months</option>
+        </select>
+      </label>
+      <label>
+        <span>Search items</span>
+        <input id="searchInput" type="search" placeholder="Sofa, fridge, desk..." aria-label="Search catalog">
+      </label>
+      <label>
+        <span>Sort by</span>
+        <select id="sortSelect" aria-label="Sort catalog">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: low to high</option>
+          <option value="price-high">Price: high to low</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="section-shell" id="catalog">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Curated catalog</p>
+          <h2>Rent room-ready furniture and appliances</h2>
+        </div>
+        <p id="catalogStatus">Choose individual items or combine products into a monthly package that fits your space.</p>
+      </div>
+
+      <div class="category-tabs" role="tablist" aria-label="Rental categories">
+        <button class="tab active" type="button" data-category="all">All</button>
+        <button class="tab" type="button" data-category="furniture">Furniture</button>
+        <button class="tab" type="button" data-category="appliance">Appliances</button>
+        <button class="tab" type="button" data-category="workspace">Workspace</button>
+      </div>
+
+      <div class="catalog-layout">
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+
+        <aside class="rental-summary" aria-label="Rental summary">
+          <div class="summary-header">
+            <p class="eyebrow">Your bundle</p>
+            <h3>Monthly estimate</h3>
+          </div>
+          <div id="selectedList" class="selected-list"></div>
+          <div class="summary-row">
+            <span>Items</span>
+            <strong id="itemCount">0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Plan discount</span>
+            <strong id="discountLabel">0%</strong>
+          </div>
+          <div class="summary-row">
+            <span>Monthly rent</span>
+            <strong id="monthlyTotal">Rs. 0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Refundable deposit</span>
+            <strong id="depositTotal">Rs. 0</strong>
+          </div>
+          <div class="summary-row muted">
+            <span>Service cover</span>
+            <strong>Included</strong>
+          </div>
+          <button class="primary-button full-width" id="checkoutButton" type="button">Request checkout</button>
+          <button class="text-button full-width" id="clearButton" type="button">Clear bundle</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="workflow" id="how-it-works">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2>Fast setup, flexible return</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <article>
+          <span>01</span>
+          <h3>Select items</h3>
+          <p>Pick products by room, budget, and rental period.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Schedule delivery</h3>
+          <p>Choose a delivery slot and get free installation support.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Upgrade anytime</h3>
+          <p>Swap, extend, or return items as your home changes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="plans" id="plans">
+      <div class="plan-copy">
+        <p class="eyebrow">Checkout request</p>
+        <h2 id="checkoutTitle">Ready when your bundle is</h2>
+        <p id="checkoutCopy">Your selected items, delivery location, duration, monthly rent, and deposit will be attached to the callback request.</p>
+        <div class="checkout-preview" id="checkoutPreview" aria-live="polite"></div>
+      </div>
+      <form class="lead-form">
+        <h3>Get a callback</h3>
+        <input id="nameInput" type="text" placeholder="Full name" aria-label="Full name" required>
+        <input id="phoneInput" type="tel" placeholder="Phone number" aria-label="Phone number" required>
+        <select id="timelineInput" aria-label="Move-in timeline">
+          <option>Moving this week</option>
+          <option>Within 2 weeks</option>
+          <option>Planning for later</option>
+        </select>
+        <textarea id="notesInput" placeholder="Delivery notes" aria-label="Delivery notes"></textarea>
+        <button type="submit">Submit request</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>RentEase - Furniture and Appliance Rental Platform</p>
+    <p>Flexible rentals for students, families, and working professionals.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
